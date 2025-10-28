@@ -1,0 +1,143 @@
+/* === Background === */
+.skills {
+  background: linear-gradient(135deg, #09090a, #292147, #5e5e61, #08234f, #403e62);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  color: #fff;
+  padding: 90px 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Floating glow particles */
+.skills::before,
+.skills::after {
+  content: "";
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  border-radius: 50%;
+  animation: floatParticle 10s infinite ease-in-out alternate;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.skills::before {
+  top: -80px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.skills::after {
+  bottom: -100px;
+  right: -80px;
+  animation-delay: 4s;
+}
+
+/* === Container === */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* === Section Title === */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 0 15px rgba(255,255,255,0.3);
+  margin-bottom: 15px;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+/* === Intro === */
+.skills-intro {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  animation: fadeInUp 1.8s ease-out;
+}
+
+/* === Skills Grid === */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  animation: fadeInUp 2s ease-out;
+}
+
+/* === Skill Card === */
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 14px 25px;
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.2);
+  cursor: default;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Animation */
+.skill-card:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px #00c9a7, 0 0 45px #6c63ff;
+  border-color: #00c9a7;
+}
+
+/* Glow animation */
+.skill-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transform: translateX(-100%);
+  transition: all 0.4s ease;
+}
+
+.skill-card:hover::before {
+  transform: translateX(100%);
+}
+
+/* === Animations === */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(0px) translateX(0px); opacity: 0.8; }
+  100% { transform: translateY(-30px) translateX(30px); opacity: 1; }
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .skills-intro {
+    font-size: 1rem;
+  }
+
+  .skill-card {
+    padding: 14px 25px;
+    font-size: 1rem;
+  }
+}

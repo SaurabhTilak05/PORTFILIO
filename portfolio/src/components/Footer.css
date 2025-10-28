@@ -1,0 +1,70 @@
+.footer {
+  background: linear-gradient(135deg, #0b1120, #1e3a8a, #3b82f6);
+  color: #fff;
+  text-align: center;
+  padding: 30px 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 255, 0.2), transparent 70%),
+              radial-gradient(circle at 70% 70%, rgba(255, 0, 255, 0.2), transparent 70%);
+  animation: footerBg 12s linear infinite alternate;
+  z-index: 0;
+}
+
+@keyframes footerBg {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(10%, 10%) rotate(360deg); }
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+}
+
+.footer-text {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #f0f0f0;
+  letter-spacing: 0.5px;
+}
+
+.highlight {
+  color: #00c9a7;
+  font-weight: 600;
+}
+
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.icon-link {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link:hover {
+  color: #00c9a7;
+  transform: scale(1.2) rotate(10deg);
+}
+
+@media (max-width: 768px) {
+  .footer-text {
+    font-size: 0.9rem;
+  }
+
+  .icon-link {
+    font-size: 1.2rem;
+  }
+}
